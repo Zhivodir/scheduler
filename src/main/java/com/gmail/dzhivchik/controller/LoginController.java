@@ -43,6 +43,6 @@ public class LoginController {
             User user = new User(login, password, email);
             userService.addUser(user);
         }
-        return "registration";
+        return "login";
     }
 }
