@@ -11,6 +11,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -24,13 +28,23 @@ import java.util.Properties;
 @PropertySource("classpath:config.properties")
 @EnableTransactionManagement
 @EnableWebMvc
-public class AppConfig {
+public class AppConfig extends WebMvcConfigurerAdapter {
     @Value("${hibernate.dialect}")
     private String sqlDialect;
 
     @Value("${hbm2ddl.auto}")
     private String hbm2dllAuto;
 
+    //Без этого бина выдает Whitelabel Error Page
+    @Bean
+    public UrlBasedViewResolver setupViewResolver() {
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+        resolver.setPrefix("/WEB-INF/pages/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        resolver.setOrder(1);
+        return resolver;
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory
