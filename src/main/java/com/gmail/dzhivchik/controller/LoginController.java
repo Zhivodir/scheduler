@@ -1,6 +1,7 @@
 package com.gmail.dzhivchik.controller;
 
 import com.gmail.dzhivchik.domain.User;
+import com.gmail.dzhivchik.domain.UserRoleEnum;
 import com.gmail.dzhivchik.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/registration")
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(){
         return "registration";
     }
@@ -40,9 +41,11 @@ public class LoginController {
                                 @RequestParam("password") String password,
                                 @RequestParam("email") String email){
         if(!login.trim().isEmpty() && !password.trim().isEmpty() && !email.trim().isEmpty()) {
-            User user = new User(login, password, email);
-            userService.addUser(user);
+            User user = new User(login, password, email, UserRoleEnum.USER);
+            if(userService.addUser(user)) {
+                return "redirect:/login";
+            }
         }
-        return "login";
+        return "registration";
     }
 }

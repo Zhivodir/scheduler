@@ -18,14 +18,16 @@ public class User {
     private String login;
     private String email;
     private String password;
+    private UserRoleEnum role;
 
     public User() {
     }
 
-    public User(String login, String email, String password) {
+    public User(String login, String email, String password, UserRoleEnum role) {
         this.login = login;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public int getId() {
@@ -58,5 +60,23 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRoleEnum getRole() {
+        return role;
+    }
+
+    public void setRole(UserRoleEnum role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

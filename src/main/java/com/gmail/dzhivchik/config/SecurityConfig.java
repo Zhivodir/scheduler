@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .authorizeRequests()
+                .antMatchers("/registration").anonymous()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/**").hasAnyRole("USER","ADMIN")
                 .anyRequest().permitAll()
@@ -64,7 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login?logout")
                 .invalidateHttpSession(true);
-
     }
 
 
