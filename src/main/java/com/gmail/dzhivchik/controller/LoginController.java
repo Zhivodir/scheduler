@@ -41,7 +41,7 @@ public class LoginController {
                                 @RequestParam("password") String password,
                                 @RequestParam("email") String email){
         if(!login.trim().isEmpty() && !password.trim().isEmpty() && !email.trim().isEmpty()) {
-            User user = new User(login, password, email, UserRoleEnum.USER);
+            User user = new User(login, email, password, UserRoleEnum.USER);
             if(userService.addUser(user)) {
                 return "redirect:/login";
             }

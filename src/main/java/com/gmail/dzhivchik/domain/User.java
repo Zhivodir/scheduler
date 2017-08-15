@@ -1,9 +1,6 @@
 package com.gmail.dzhivchik.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by User on 09.08.2017.
@@ -18,6 +15,7 @@ public class User {
     private String login;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
     public User() {
