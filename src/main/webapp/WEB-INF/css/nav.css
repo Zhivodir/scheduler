@@ -1,0 +1,27 @@
+.navbar-color {
+    background-color: transparent !important;
+}
+
+.navbar-font {
+    color: black !important;
+}
+
+.navbar-border {
+    border: 0px solid !important;
+}
+
+.navbar-font:hover {
+    color: white !important;
+}
+
+.nav {
+    background-color: #5e5e5e;
+}
+
+/****************************/
+/*Настройка выпадающего меню*/
+/****************************/
+
+.dropdown-menu-setting{
+    min-width: 50px !important;
+}

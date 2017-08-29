@@ -1,6 +1,8 @@
 package com.gmail.dzhivchik.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 09.08.2017.
@@ -18,6 +20,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
+//    private List<Dream> dreams = new ArrayList<>();
+//    private List<Purpose> purposes = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Task> tasks = new ArrayList<>();
+
     public User() {
     }
 
@@ -27,6 +34,7 @@ public class User {
         this.password = password;
         this.role = role;
     }
+
 
     public int getId() {
         return id;

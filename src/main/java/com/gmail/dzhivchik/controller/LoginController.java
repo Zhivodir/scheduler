@@ -20,11 +20,6 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String generalPage(){
-        return "index";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(){
         return "login";

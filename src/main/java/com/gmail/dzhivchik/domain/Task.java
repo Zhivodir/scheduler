@@ -1,23 +1,89 @@
 package com.gmail.dzhivchik.domain;
 
+import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by User on 16.08.2017.
  */
-public class Task extends Purpose {
+
+@Entity
+@Table(name = "tasks")
+public class Task{
+    @Id
+    @GeneratedValue
+    private long id;
+    private String description;
+    private String content;
+    @Column(name = "time_limits")
+    private Date timeLimits;
     private int priority;
-    private String periodichnost;
+    private boolean done;
+    private int repeatability;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Task() {
-        super();
+
     }
 
-    public Task(String name, String description, Date timeLimits, List<Task> pointsForImplementation, int priority, String periodichnost) {
-        super(name, description, timeLimits, pointsForImplementation);
+    public Task(String description, String content, Date timeLimits, boolean done, int repeatability, int priority, User user) {
+        this.description = description;
+        this.content = content;
+        this.timeLimits = timeLimits;
+        this.done = done;
+        this.repeatability = repeatability;
         this.priority = priority;
-        this.periodichnost = periodichnost;
+        this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getTimeLimits() {
+        return timeLimits;
+    }
+
+    public void setTimeLimits(Date timeLimits) {
+        this.timeLimits = timeLimits;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public int getRepeatability() {
+        return repeatability;
+    }
+
+    public void setRepeatability(int repeatability) {
+        this.repeatability = repeatability;
     }
 
     public int getPriority() {
@@ -28,11 +94,11 @@ public class Task extends Purpose {
         this.priority = priority;
     }
 
-    public String getPeriodichnost() {
-        return periodichnost;
+    public User getUser() {
+        return user;
     }
 
-    public void setPeriodichnost(String periodichnost) {
-        this.periodichnost = periodichnost;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

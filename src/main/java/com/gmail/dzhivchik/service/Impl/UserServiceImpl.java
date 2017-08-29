@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByLogin(login);
     }
 
-
     @Override
     @Transactional
     public boolean addUser(User user) {
