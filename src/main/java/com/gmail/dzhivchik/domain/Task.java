@@ -1,7 +1,6 @@
 package com.gmail.dzhivchik.domain;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by User on 16.08.2017.
@@ -15,8 +14,6 @@ public class Task{
     private long id;
     private String description;
     private String content;
-    @Column(name = "time_limits")
-    private Date timeLimits;
     private int priority;
     private boolean done;
     private int repeatability;
@@ -28,10 +25,9 @@ public class Task{
 
     }
 
-    public Task(String description, String content, Date timeLimits, boolean done, int repeatability, int priority, User user) {
+    public Task(String description, String content, boolean done, int repeatability, int priority, User user) {
         this.description = description;
         this.content = content;
-        this.timeLimits = timeLimits;
         this.done = done;
         this.repeatability = repeatability;
         this.priority = priority;
@@ -60,14 +56,6 @@ public class Task{
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Date getTimeLimits() {
-        return timeLimits;
-    }
-
-    public void setTimeLimits(Date timeLimits) {
-        this.timeLimits = timeLimits;
     }
 
     public boolean isDone() {

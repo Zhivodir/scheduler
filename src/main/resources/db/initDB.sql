@@ -37,3 +37,21 @@ CREATE TABLE `purposes` (
   `done` TINYINT(1) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `task_date` (
+  `task_id` INT NOT NULL,
+  `task_date` DATE NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `task_date` (
+  `task_id` INT NOT NULL,
+  `task_day` VARCHAR(9) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `task_when` (
+  `task_id` INT NOT NULL,
+  `date` DATE NULL,
+  `day` VARCHAR(9) NULL,
+  `time` TIME(5) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

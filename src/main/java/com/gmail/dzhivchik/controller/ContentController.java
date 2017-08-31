@@ -29,13 +29,24 @@ public class ContentController {
     public String createNewTask(Model model,
                                 @RequestParam("description") String description,
                                 @RequestParam("content") String content,
-                                @RequestParam("priority") String priority){
+                                @RequestParam("priority") String priority,
+                                @RequestParam("type_of_task") String type_of_task){
+        String targetView = "tasks";
         if(!description.trim().isEmpty() && !priority.trim().isEmpty()) {
             String login = SecurityContextHolder.getContext().getAuthentication().getName();
             User user = userService.getUser(login);
-            Task task = new Task(description, content, null, false, 1, 1, user);
-            if(contentService.addTask(task)) {
-                return "redirect:/index";
+            Task task = new Task(description, content, false, 1, 1, user);
+//            if(contentService.addTask(task)) {
+//                return "redirect:/index";
+//            }
+            if(type_of_task.equals("single")){
+
+            }else if(type_of_task.equals("several_dates")){
+
+            }else if(type_of_task.equals("periodic")){
+
+            }else if(type_of_task.equals("everyday")){
+
             }
         }
         return "index";

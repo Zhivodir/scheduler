@@ -18,18 +18,51 @@
                         <form action="createNewTask" method="post">
                             <div class="form-group">
                                 <label class="sr-only" for="description">description</label>
-                                <input type="text" class="orm-control" id="description" name="description"
+                                <input type="text" class="form-control" id="description" name="description"
                                        placeholder="Enter description of task">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="content">content</label>
-                                <input type="text" class="orm-control" id="content" name="content"
+                                <input type="text" class="form-control" id="content" name="content"
                                        placeholder="Enter content of task">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="priority">priority</label>
-                                <input type="text" class="orm-control" id="priority" name="priority"
+                                <input type="text" class="form-control" id="priority" name="priority"
                                        placeholder="Enter priority of task">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="type_of_task">type</label>
+                                <select name="type_of_task" id="type_of_task" class="form-control">
+                                    <option value="without_param">Без параметров</option>
+                                    <option value="dated">Датированная</option>
+                                    <option value="periodic">Периодическая</option>
+                                    <option value="everyday">Ежедневная</option>
+                                </select>
+                            </div>
+
+                            <%-----------------%>
+                            <%-- hidden part --%>
+                            <%-----------------%>
+
+                            <%-- Dates task --%>
+                            <div class="form-group hidden_task" id="dated_task" hidden>
+                                <div class="multiple"></div>
+                                <input type="text" class="form-control" name="result">
+                            </div>
+
+                            <%-- Periodic task --%>
+                            <div class="form-group hidden_task" id="periodic_task" hidden>
+                                <label class="sr-only" for="periodic">type</label>
+                                <input type="text" class="form-control" id="periodic" name="periodic"
+                                       placeholder="Enter time of task2">
+                            </div>
+
+                            <%-- Everyday task --%>
+                            <div class="form-group hidden_task" id="everyday_task" hidden>
+                                <label class="sr-only" for="everyday">type</label>
+                                <input type="text" class="form-control" id="everyday" name="everyday"
+                                       placeholder="Enter time of task3">
                             </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>

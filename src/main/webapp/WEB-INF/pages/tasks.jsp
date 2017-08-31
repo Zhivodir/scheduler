@@ -16,6 +16,7 @@
     <title>Мои задачи</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pickmeup.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,6 +35,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/createNewTask.js"></script>
+<script src="js/pickmeup.js"></script>
+<script src="js/pickmeup_config.js"></script>
+
 </sec:authorize>
 </body>
 </html>
