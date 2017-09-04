@@ -1,5 +1,6 @@
 package com.gmail.dzhivchik.controller;
 
+import com.gmail.dzhivchik.domain.DateForTask;
 import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
 import com.gmail.dzhivchik.service.ContentService;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by User on 21.08.2017.
@@ -30,25 +34,28 @@ public class ContentController {
                                 @RequestParam("description") String description,
                                 @RequestParam("content") String content,
                                 @RequestParam("priority") String priority,
-                                @RequestParam("type_of_task") String type_of_task){
+                                @RequestParam("type_of_task") String type_of_task,
+                                @RequestParam(value = "task_dates", required = false) String task_dates){
         String targetView = "tasks";
         if(!description.trim().isEmpty() && !priority.trim().isEmpty()) {
             String login = SecurityContextHolder.getContext().getAuthentication().getName();
             User user = userService.getUser(login);
             Task task = new Task(description, content, false, 1, 1, user);
-//            if(contentService.addTask(task)) {
-//                return "redirect:/index";
-//            }
-            if(type_of_task.equals("single")){
-
-            }else if(type_of_task.equals("several_dates")){
-
-            }else if(type_of_task.equals("periodic")){
-
-            }else if(type_of_task.equals("everyday")){
-
+            if(type_of_task.equals("dated")){
+                String[] tempDates = task_dates.split(",");
+                for (String str:tempDates) {
+                    try {
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                        java.sql.Date date = new java.sql.Date(format.parse(str).getTime());
+                        DateForTask dateForTask = new DateForTask(date, null);
+                        task.addToDatesList(dateForTask);
+                    }catch (ParseException e){
+                        System.out.println("Проблемы при распарсивании строки в дату.");
+                    }
+                }
             }
+            contentService.addTask(task);
         }
-        return "index";
+        return "tasks";
     }
 }

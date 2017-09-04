@@ -6,6 +6,7 @@ import com.gmail.dzhivchik.repository.TaskRepository;
 import com.gmail.dzhivchik.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class ContentServiceImpl implements ContentService{
     private TaskRepository taskRepository;
 
     @Override
+    @Transactional
     public boolean addTask(Task task) {
         if(taskRepository.save(task) != null){
             return true;

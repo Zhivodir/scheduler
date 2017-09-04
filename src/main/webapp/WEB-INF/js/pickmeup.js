@@ -40,6 +40,7 @@
                 callback.apply(callback, [element[i]].concat(args));
             }
         }
+
     }
 
     /**
@@ -757,6 +758,7 @@
             }
         })();
         var prepared_date = prepare_date(options);
+        $("#result").attr("value",prepared_date.formatted_date)
         if (dom_matches(target, 'input')) {
             //noinspection JSUndefinedPropertyAssignment
             target.value = options.mode == 'single' ? prepared_date.formatted_date : prepared_date.formatted_date.join(options.separator);

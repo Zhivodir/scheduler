@@ -48,21 +48,21 @@
                             <%-- Dates task --%>
                             <div class="form-group hidden_task" id="dated_task" hidden>
                                 <div class="multiple"></div>
-                                <input type="text" class="form-control" name="result">
+                                <input type="text" class="form-control" id="result" name="task_dates" hidden>
                             </div>
 
                             <%-- Periodic task --%>
                             <div class="form-group hidden_task" id="periodic_task" hidden>
                                 <label class="sr-only" for="periodic">type</label>
                                 <input type="text" class="form-control" id="periodic" name="periodic"
-                                       placeholder="Enter time of task2">
+                                       placeholder="Enter time of task2" disabled>
                             </div>
 
                             <%-- Everyday task --%>
                             <div class="form-group hidden_task" id="everyday_task" hidden>
                                 <label class="sr-only" for="everyday">type</label>
                                 <input type="text" class="form-control" id="everyday" name="everyday"
-                                       placeholder="Enter time of task3">
+                                       placeholder="Enter time of task3" disabled>
                             </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>

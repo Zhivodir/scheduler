@@ -1,6 +1,8 @@
 package com.gmail.dzhivchik.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 16.08.2017.
@@ -10,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "tasks")
 public class Task{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
     private String description;
     private String content;
@@ -20,6 +22,14 @@ public class Task{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+//    @ManyToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
+@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+@JoinTable(
+        name="task_date",
+        joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "date_id", referencedColumnName = "id")})
+    List<DateForTask> dates = new ArrayList<>();
 
     public Task() {
 
@@ -88,5 +98,17 @@ public class Task{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<DateForTask> getDates() {
+        return dates;
+    }
+
+    public void setDates(List<DateForTask> dates) {
+        this.dates = dates;
+    }
+
+    public void addToDatesList(DateForTask date){
+        dates.add(date);
     }
 }

@@ -13,7 +13,7 @@ CREATE TABLE `dreams` (
   `id` INT NOT NULL,
   `description` VARCHAR(45) NOT NULL,
   `content` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `tasks` (
@@ -40,10 +40,10 @@ CREATE TABLE `purposes` (
 
 CREATE TABLE `task_date` (
   `task_id` INT NOT NULL,
-  `task_date` DATE NULL
+  `date_id` INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `task_date` (
+CREATE TABLE `task_day` (
   `task_id` INT NOT NULL,
   `task_day` VARCHAR(9) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,5 +53,11 @@ CREATE TABLE `task_when` (
   `date` DATE NULL,
   `day` VARCHAR(9) NULL,
   `time` TIME(5) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `dates` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

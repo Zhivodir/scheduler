@@ -1,5 +1,7 @@
 package com.gmail.dzhivchik.domain;
 
+import com.gmail.dzhivchik.domain.enums.UserRoleEnum;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

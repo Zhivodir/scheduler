@@ -1,4 +1,4 @@
-package com.gmail.dzhivchik.domain;
+package com.gmail.dzhivchik.domain.enums;
 
 /**
  * Created by User on 14.08.2017.

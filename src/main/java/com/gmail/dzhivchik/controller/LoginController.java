@@ -1,7 +1,7 @@
 package com.gmail.dzhivchik.controller;
 
 import com.gmail.dzhivchik.domain.User;
-import com.gmail.dzhivchik.domain.UserRoleEnum;
+import com.gmail.dzhivchik.domain.enums.UserRoleEnum;
 import com.gmail.dzhivchik.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
