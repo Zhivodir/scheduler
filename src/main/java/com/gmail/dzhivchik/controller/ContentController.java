@@ -45,17 +45,20 @@ public class ContentController {
                 String[] tempDates = task_dates.split(",");
                 for (String str:tempDates) {
                     try {
-                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                        java.sql.Date date = new java.sql.Date(format.parse(str).getTime());
-                        DateForTask dateForTask = new DateForTask(date, null);
+                        SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                        java.util.Date date = sdf1.parse(str);
+                        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                        DateForTask dateForTask = new DateForTask(sqlDate, null);
                         task.addToDatesList(dateForTask);
                     }catch (ParseException e){
                         System.out.println("Проблемы при распарсивании строки в дату.");
                     }
                 }
+            }else{
+
             }
             contentService.addTask(task);
         }
-        return "tasks";
+        return "redirect:/tasks";
     }
 }

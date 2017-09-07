@@ -30,8 +30,10 @@
 <sec:authorize access="isAuthenticated()">
     <c:set var="tasks" value="${tasks}" scope="request"/>
     <c:import url="elements/navbar.jsp"/>
+    <%--<c:import url="elements/left_space.jsp"/>--%>
     <c:import url="elements/content_space.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewTask.jsp"/>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

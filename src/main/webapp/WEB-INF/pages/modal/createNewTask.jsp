@@ -47,7 +47,7 @@
 
                             <%-- Dates task --%>
                             <div class="form-group hidden_task" id="dated_task" hidden>
-                                <div class="multiple"></div>
+                                <div class="multiple create_task"></div>
                                 <input type="text" class="form-control" id="result" name="task_dates" hidden>
                             </div>
 

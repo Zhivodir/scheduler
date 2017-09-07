@@ -23,7 +23,6 @@ public class Task{
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @ManyToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 @JoinTable(
         name="task_date",

@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.Date;
+
 /**
  * Created by User on 22.08.2017.
  */
@@ -27,7 +29,19 @@ public class ViewController {
     public String onIndex(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(login);
-        model.addAttribute("tasks", contentService.getTasks(user));
+        Date date = new java.sql.Date(System.currentTimeMillis());
+        model.addAttribute("tasks", contentService.getTasks(user, date));
+        return "tasks";
+    }
+
+    //Пока вывод только сегодняшней даты
+    @RequestMapping(value = "/tasks", method = RequestMethod.GET)
+    public String onTasks(Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        //Сегодняшняя дата
+        Date date = new java.sql.Date(System.currentTimeMillis());
+        model.addAttribute("tasks", contentService.getTasks(user, date));
         return "tasks";
     }
 }

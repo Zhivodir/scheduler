@@ -19,6 +19,7 @@
 
 <body>
     <c:import url="elements/navbar.jsp"></c:import>
+    <c:import url="elements/left_space.jsp"/>
     <c:import url="elements/content_space.jsp"></c:import>
     <c:import url="/WEB-INF/pages/modal/createNewTask.jsp"/>
 

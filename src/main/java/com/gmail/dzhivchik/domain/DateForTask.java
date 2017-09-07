@@ -19,11 +19,6 @@ public class DateForTask {
     private Date date;
     private Time time;
 
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name="task_date",
-//            joinColumns = {@JoinColumn(name = "date_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")})
 @ManyToMany(mappedBy = "dates", cascade = CascadeType.ALL)
     List<Task> tasks = new ArrayList<>();
 

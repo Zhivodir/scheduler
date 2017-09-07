@@ -6,6 +6,7 @@
  * @copyright Copyright (c) 2008-2009, Stefan Petre
  * @license   MIT License, see license.txt
  */
+var type_of_calendar;
 
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -29,6 +30,7 @@
      * @param {Function}           callback
      * @param {*}                  [args=[]]
      */
+
     function dom_for_collection (element, callback, args) {
         args = args || [];
         if (element instanceof Element) {
@@ -1240,6 +1242,11 @@
                 element : element
             };
             element.__pickmeup_target = target;
+            if(target.getAttribute('class').indexOf('multiple create_task')){
+                type_of_calendar = "create_task";
+            }else if(target.getAttribute('class').indexOf('single left_side')){
+                type_of_calendar = "left_side";
+            }
             dom_add_class(element, 'pickmeup');
             if (options.class_name) {
                 dom_add_class(element, options.class_name);
@@ -1361,7 +1368,12 @@
          * @returns {Element}
          */
         instance_content_template : function (elements, container_class_name) {
-            var root_element = document.createElement('div');
+            if(type_of_calendar === 'create_task') {
+                var root_element = document.createElement('a');
+                root_element.setAttribute('href', '/tasks?');
+            }else if(type_of_calendar === 'left_side'){
+                var root_element = document.createElement('div');
+            }
             dom_add_class(root_element, container_class_name);
             for (var i = 0; i < elements.length; ++i) {
                 dom_add_class(elements[i], 'pmu-button');

@@ -1,6 +1,10 @@
 /**
  * Created by User on 31.08.2017.
  */
+pickmeup('.single', {
+    flat : true,
+    mode : 'single'
+});
 pickmeup('.multiple', {
     flat : true,
     mode : 'multiple'

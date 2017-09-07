@@ -6,6 +6,7 @@
     display:inline-block;
     position:absolute;
     touch-action:manipulation;
+    /*font-size: 12px !important;*/
 }
 
 .pickmeup *{

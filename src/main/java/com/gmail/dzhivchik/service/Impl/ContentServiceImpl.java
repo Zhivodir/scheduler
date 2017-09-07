@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class ContentServiceImpl implements ContentService{
     }
 
     @Override
-    public List<Task> getTasks(User user) {
-        return taskRepository.findByUser(user.getId());
+    public List<Task> getTasks(User user, Date date) {
+        return taskRepository.findByUser(user.getId(), date);
     }
 }
