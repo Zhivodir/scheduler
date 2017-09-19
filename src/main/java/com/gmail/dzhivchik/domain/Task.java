@@ -1,5 +1,8 @@
 package com.gmail.dzhivchik.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +11,7 @@ import java.util.List;
  * Created by User on 16.08.2017.
  */
 
+@JsonAutoDetect
 @Entity
 @Table(name = "tasks")
 public class Task{
@@ -19,16 +23,26 @@ public class Task{
     private int priority;
     private boolean done;
     private int repeatability;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-@JoinTable(
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
         name="task_date",
         joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "date_id", referencedColumnName = "id")})
     List<DateForTask> dates = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "task_day",
+        joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "day_id", referencedColumnName = "id")})
+    List<DayForTask> days = new ArrayList<>();
 
     public Task() {
 
@@ -109,5 +123,38 @@ public class Task{
 
     public void addToDatesList(DateForTask date){
         dates.add(date);
+    }
+
+
+    public List<DayForTask> getDays() {
+        return days;
+    }
+
+    public void setDays(List<DayForTask> days) {
+        this.days = days;
+    }
+
+    public void addToDayList(DayForTask day){
+        days.add(day);
+    }
+
+    @Override
+    public String toString() {
+        String dates = "[";
+        for(DateForTask date:getDates()){
+            dates = dates + date.getDate() + ",";
+        }
+        if(getDates().size() > 0){
+            dates = dates.substring(0,dates.length() - 2);
+        }
+        dates += "]";
+        return "Task{" +
+                "description:'" + description + '\'' +
+                ", content:'" + content + '\'' +
+                ", priority:" + priority +
+                ", done:" + done +
+                ", repeatability:" + repeatability +
+                ", dates:" + dates +
+                '}';
     }
 }

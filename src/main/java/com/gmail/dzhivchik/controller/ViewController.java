@@ -30,17 +30,9 @@ public class ViewController {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(login);
         Date date = new java.sql.Date(System.currentTimeMillis());
-        model.addAttribute("tasks", contentService.getTasks(user, date));
-        return "tasks";
-    }
-
-    //Пока вывод только сегодняшней даты
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET)
-    public String onTasks(Model model){
-        String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userService.getUser(login);
-        //Сегодняшняя дата
-        Date date = new java.sql.Date(System.currentTimeMillis());
+        java.util.GregorianCalendar cal = new java.util.GregorianCalendar();
+        cal.setTime(date);
+        System.out.println("Current day:" + cal.get(cal.DAY_OF_WEEK));
         model.addAttribute("tasks", contentService.getTasks(user, date));
         return "tasks";
     }

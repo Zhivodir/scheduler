@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2008-2009, Stefan Petre
  * @license   MIT License, see license.txt
  */
-var type_of_calendar;
+
 
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -30,6 +30,10 @@ var type_of_calendar;
      * @param {Function}           callback
      * @param {*}                  [args=[]]
      */
+
+    function test (t) {
+        alert(t);
+    }
 
     function dom_for_collection (element, callback, args) {
         args = args || [];
@@ -760,6 +764,35 @@ var type_of_calendar;
             }
         })();
         var prepared_date = prepare_date(options);
+        var data = prepared_date.formatted_date;
+        var res = $.post(
+            "/ajax/load_task_for_selected_date",
+            { data: data },
+            onLoaded,
+            'json'
+        );
+
+        function onLoaded(data) {
+            var content = document.getElementById('content');
+            $("#content tr").remove();
+            for(var i in data) {
+                $('#content').prepend('<tr>' +
+                    '<td>' + data[i].id + '</td>' +
+                    '<td>' + data[i].description + '</td>' +
+                    '<td>' + i.id + '</td>' +
+                    '<td>' + i.id + '</td>' +
+                    '<td>' + i.id + '</td>' +
+                    '</tr>');
+            }
+        }
+
+
+        /******************************/
+        /* Если single - здесь должно */
+        /* быть добавление в result,  */
+        /* иначе реализация - load()  */
+        /******************************/
+
         $("#result").attr("value",prepared_date.formatted_date)
         if (dom_matches(target, 'input')) {
             //noinspection JSUndefinedPropertyAssignment
@@ -1242,11 +1275,6 @@ var type_of_calendar;
                 element : element
             };
             element.__pickmeup_target = target;
-            if(target.getAttribute('class').indexOf('multiple create_task')){
-                type_of_calendar = "create_task";
-            }else if(target.getAttribute('class').indexOf('single left_side')){
-                type_of_calendar = "left_side";
-            }
             dom_add_class(element, 'pickmeup');
             if (options.class_name) {
                 dom_add_class(element, options.class_name);
@@ -1368,12 +1396,7 @@ var type_of_calendar;
          * @returns {Element}
          */
         instance_content_template : function (elements, container_class_name) {
-            if(type_of_calendar === 'create_task') {
-                var root_element = document.createElement('a');
-                root_element.setAttribute('href', '/tasks?');
-            }else if(type_of_calendar === 'left_side'){
-                var root_element = document.createElement('div');
-            }
+            var root_element = document.createElement('div');
             dom_add_class(root_element, container_class_name);
             for (var i = 0; i < elements.length; ++i) {
                 dom_add_class(elements[i], 'pmu-button');

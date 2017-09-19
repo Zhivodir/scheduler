@@ -22,7 +22,7 @@
                         <th>Header</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="content">
                     <c:forEach items="${tasks}" var="task">
                         <tr>
                             <td>${task.id}</td>

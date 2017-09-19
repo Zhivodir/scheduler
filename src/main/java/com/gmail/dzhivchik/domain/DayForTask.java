@@ -4,34 +4,34 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Time;
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by User on 01.09.2017.
+ * Created by User on 13.09.2017.
  */
 
 @JsonAutoDetect
 @Entity
-@Table(name = "dates")
-public class DateForTask {
+@Table(name = "days")
+public class DayForTask {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date date;
+    private DayOfWeek day;
     private Time time;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "dates", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "days", cascade = CascadeType.ALL)
     List<Task> tasks = new ArrayList<>();
 
-    public DateForTask() {
+    public DayForTask() {
     }
 
-    public DateForTask(Date date, Time time) {
-        this.date = date;
+    public DayForTask(DayOfWeek day, Time time) {
+        this.day = day;
         this.time = time;
     }
 
@@ -43,12 +43,12 @@ public class DateForTask {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public DayOfWeek getDay() {
+        return day;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDay(DayOfWeek day) {
+        this.day = day;
     }
 
     public Time getTime() {

@@ -48,20 +48,42 @@
                             <%-- Dates task --%>
                             <div class="form-group hidden_task" id="dated_task" hidden>
                                 <div class="multiple create_task"></div>
-                                <input type="text" class="form-control" id="result" name="task_dates" hidden>
+                                <input type="text" class="form-control inputDisabled" id="result" name="task_dates" hidden disabled>
                             </div>
 
-                            <%-- Periodic task --%>
+                            <%-- Days task --%>
                             <div class="form-group hidden_task" id="periodic_task" hidden>
-                                <label class="sr-only" for="periodic">type</label>
-                                <input type="text" class="form-control" id="periodic" name="periodic"
-                                       placeholder="Enter time of task2" disabled>
+                                <div class="well well-sm text-center">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-danger">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="1"  disabled>Su
+                                        </label>
+                                        <label class="btn btn-success">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="2" disabled>Mo
+                                        </label>
+                                        <label class="btn btn-primary">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="3"  disabled>Tu
+                                        </label>
+                                        <label class="btn btn-info">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="4"  disabled>We
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="5"  disabled>Th
+                                        </label>
+                                        <label class="btn btn-warning">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="6"  disabled>Fr
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="7"  disabled>Sa
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             <%-- Everyday task --%>
                             <div class="form-group hidden_task" id="everyday_task" hidden>
                                 <label class="sr-only" for="everyday">type</label>
-                                <input type="text" class="form-control" id="everyday" name="everyday"
+                                <input type="text" class="form-control inputDisabled" id="everyday" name="everyday"
                                        placeholder="Enter time of task3" disabled>
                             </div>
                             <button type="submit" class="btn btn-primary">Create</button>
