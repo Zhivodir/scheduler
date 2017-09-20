@@ -1,8 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container-fluid">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-sm-8 col-md-5"></div>
+        <div class="col-sm-2 col-md-2">
+            <h4 class="sub-header">${currentDate}</h4>
+        </div>
+        <div class="col-sm-8 col-md-5"></div>
+    </div>
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar" style="margin-top: 100px;">
+        <div class="col-sm-3 col-md-2 sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="single left_side" id="left_side"></div>
@@ -10,7 +17,6 @@
             </div>
         </div>
         <div class="col-sm-9 col-md-10 main">
-            <h2 class="sub-header">Задачи на день:</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

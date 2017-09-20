@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.Date;
 import java.time.DayOfWeek;
+import java.util.Locale;
 
 /**
  * Created by User on 22.08.2017.
@@ -33,7 +34,8 @@ public class ViewController {
         Date date = new java.sql.Date(System.currentTimeMillis());
         java.util.GregorianCalendar cal = new java.util.GregorianCalendar();
         cal.setTime(date);
-        model.addAttribute("tasks", contentService.getTasks(user, date, DayOfWeek.of(cal.get(cal.DAY_OF_WEEK)) ));
+        model.addAttribute("currentDate", cal.get(cal.DAY_OF_MONTH) + " " + cal.getDisplayName(cal.MONTH, cal.LONG, Locale.UK));
+        model.addAttribute("tasks", contentService.getTasks(user, date, DayOfWeek.of(cal.get(cal.DAY_OF_WEEK))));
         return "tasks";
     }
 }
