@@ -157,4 +157,38 @@ public class Task{
                 ", dates:" + dates +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+
+        Task task = (Task) o;
+
+        if (getId() != task.getId()) return false;
+        if (getPriority() != task.getPriority()) return false;
+        if (isDone() != task.isDone()) return false;
+        if (getRepeatability() != task.getRepeatability()) return false;
+        if (getDescription() != null ? !getDescription().equals(task.getDescription()) : task.getDescription() != null)
+            return false;
+        if (getContent() != null ? !getContent().equals(task.getContent()) : task.getContent() != null) return false;
+        if (getUser() != null ? !getUser().equals(task.getUser()) : task.getUser() != null) return false;
+        if (getDates() != null ? !getDates().equals(task.getDates()) : task.getDates() != null) return false;
+        return getDays() != null ? getDays().equals(task.getDays()) : task.getDays() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (getId() ^ (getId() >>> 32));
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
+        result = 31 * result + getPriority();
+        result = 31 * result + (isDone() ? 1 : 0);
+        result = 31 * result + getRepeatability();
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
+        result = 31 * result + (getDates() != null ? getDates().hashCode() : 0);
+        result = 31 * result + (getDays() != null ? getDays().hashCode() : 0);
+        return result;
+    }
 }

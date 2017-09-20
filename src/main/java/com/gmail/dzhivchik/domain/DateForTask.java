@@ -70,4 +70,27 @@ public class DateForTask {
     public void addToTasks(Task task){
         tasks.add(task);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DateForTask)) return false;
+
+        DateForTask that = (DateForTask) o;
+
+        if (getId() != that.getId()) return false;
+        if (getDate() != null ? !getDate().equals(that.getDate()) : that.getDate() != null) return false;
+        if (getTime() != null ? !getTime().equals(that.getTime()) : that.getTime() != null) return false;
+        return getTasks() != null ? getTasks().equals(that.getTasks()) : that.getTasks() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (getId() ^ (getId() >>> 32));
+        result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
+        result = 31 * result + (getTime() != null ? getTime().hashCode() : 0);
+        result = 31 * result + (getTasks() != null ? getTasks().hashCode() : 0);
+        return result;
+    }
 }

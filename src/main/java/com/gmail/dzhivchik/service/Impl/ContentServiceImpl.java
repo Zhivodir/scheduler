@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.time.DayOfWeek;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by User on 21.08.2017.
@@ -30,7 +34,12 @@ public class ContentServiceImpl implements ContentService{
     }
 
     @Override
-    public List<Task> getTasks(User user, Date date) {
-        return taskRepository.findByUser(user.getId(), date);
+    public List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek) {
+        Set<Task> temp = new HashSet<>();
+        temp.addAll(taskRepository.findByUserAndDate(user.getId(), date));
+        temp.addAll(taskRepository.findByUsetAndDay(user.getId(), dayOfWeek));
+        List<Task> result = new ArrayList<>();
+        result.addAll(temp);
+        return result;
     }
 }

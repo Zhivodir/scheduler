@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.util.List;
 
 /**
@@ -47,9 +48,7 @@ public class AjaxController {
                 java.sql.Date dateForSearch = new java.sql.Date(sdf.parse(data).getTime());
                 java.util.GregorianCalendar cal = new java.util.GregorianCalendar();
                 cal.setTime(dateForSearch);
-                System.out.println(cal.get(java.util.Calendar.DAY_OF_WEEK));
-                List<Task> tasks = contentService.getTasks(user, dateForSearch);
-                result = tasks.toString();
+                List<Task> tasks = contentService.getTasks(user, dateForSearch, DayOfWeek.of(cal.get(cal.DAY_OF_WEEK)));
                 StringWriter writer = new StringWriter();
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.writeValue(writer, tasks);

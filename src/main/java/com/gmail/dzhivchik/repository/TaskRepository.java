@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.sql.Date;
+import java.time.DayOfWeek;
 import java.util.List;
 
 /**
@@ -13,5 +14,8 @@ import java.util.List;
  */
 public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query("SELECT t from Task t INNER JOIN t.dates d where t.user.id = :id and d.date = :date")
-    List<Task> findByUser(@Param("id") int id, @Param("date") Date date);
+    List<Task> findByUserAndDate(@Param("id") int id, @Param("date") Date date);
+
+    @Query("SELECT t from Task t INNER JOIN t.days d where t.user.id = :id and d.day = :day")
+    List<Task> findByUsetAndDay(@Param("id") int id, @Param("day") DayOfWeek day);
 }

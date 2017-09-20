@@ -60,7 +60,6 @@ public class ContentController {
 
             if(type_of_task.equals("periodic")){
                 for (String day:day_of_week) {
-                    System.out.println(DayOfWeek.of(Integer.valueOf(day)));
                     DayForTask dayForTask = new DayForTask(DayOfWeek.of(Integer.valueOf(day)), null);
                     task.addToDayList(dayForTask);
                 }

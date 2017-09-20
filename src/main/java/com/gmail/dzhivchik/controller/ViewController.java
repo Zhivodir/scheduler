@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.Date;
+import java.time.DayOfWeek;
 
 /**
  * Created by User on 22.08.2017.
@@ -32,8 +33,7 @@ public class ViewController {
         Date date = new java.sql.Date(System.currentTimeMillis());
         java.util.GregorianCalendar cal = new java.util.GregorianCalendar();
         cal.setTime(date);
-        System.out.println("Current day:" + cal.get(cal.DAY_OF_WEEK));
-        model.addAttribute("tasks", contentService.getTasks(user, date));
+        model.addAttribute("tasks", contentService.getTasks(user, date, DayOfWeek.of(cal.get(cal.DAY_OF_WEEK)) ));
         return "tasks";
     }
 }

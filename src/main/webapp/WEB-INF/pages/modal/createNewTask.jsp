@@ -55,26 +55,26 @@
                             <div class="form-group hidden_task" id="periodic_task" hidden>
                                 <div class="well well-sm text-center">
                                     <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-danger">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="1"  disabled>Su
-                                        </label>
                                         <label class="btn btn-success">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="2" disabled>Mo
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="1" disabled>Mo
                                         </label>
                                         <label class="btn btn-primary">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="3"  disabled>Tu
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="2"  disabled>Tu
                                         </label>
                                         <label class="btn btn-info">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="4"  disabled>We
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="3"  disabled>We
                                         </label>
                                         <label class="btn btn-default">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="5"  disabled>Th
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="4"  disabled>Th
                                         </label>
                                         <label class="btn btn-warning">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="6"  disabled>Fr
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="5"  disabled>Fr
                                         </label>
                                         <label class="btn btn-danger">
-                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="7"  disabled>Sa
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="6"  disabled>Sa
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="checkbox" name="day_of_week" autocomplete="off" class="day_of_week" value="7"  disabled>Su
                                         </label>
                                     </div>
                                 </div>

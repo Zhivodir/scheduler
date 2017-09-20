@@ -4,6 +4,7 @@ import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
 
 import java.sql.Date;
+import java.time.DayOfWeek;
 import java.util.List;
 
 /**
@@ -11,5 +12,5 @@ import java.util.List;
  */
 public interface ContentService {
     boolean addTask(Task task);
-    List<Task> getTasks(User user, Date date);
+    List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek);
 }
