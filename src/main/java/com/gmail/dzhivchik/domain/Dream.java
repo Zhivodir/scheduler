@@ -1,9 +1,6 @@
 package com.gmail.dzhivchik.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by User on 16.08.2017.
@@ -13,17 +10,22 @@ import javax.persistence.Table;
 @Table(name = "dreams")
 public class Dream {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     private String description;
     private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Dream() {
     }
 
-    public Dream(String description, String content) {
+    public Dream(String description, String content, User user) {
         this.description = description;
         this.content = content;
+        this.user = user;
     }
 
 
@@ -49,5 +51,22 @@ public class Dream {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Dream{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

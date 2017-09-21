@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by User on 16.08.2017.
  */
-public class Purpose extends Dream{
+public class Purpose{
     private Date timeLimits;
     private boolean done;
     private List<Task> pointsForImplementation;
@@ -17,7 +17,6 @@ public class Purpose extends Dream{
     }
 
     public Purpose(String name, String description, Date timeLimits, List<Task> pointsForImplementation, boolean done) {
-        super(name, description);
         this.timeLimits = timeLimits;
         this.pointsForImplementation = pointsForImplementation;
         this.done = done;

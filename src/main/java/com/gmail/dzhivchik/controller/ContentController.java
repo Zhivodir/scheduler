@@ -1,9 +1,6 @@
 package com.gmail.dzhivchik.controller;
 
-import com.gmail.dzhivchik.domain.DateForTask;
-import com.gmail.dzhivchik.domain.DayForTask;
-import com.gmail.dzhivchik.domain.Task;
-import com.gmail.dzhivchik.domain.User;
+import com.gmail.dzhivchik.domain.*;
 import com.gmail.dzhivchik.service.ContentService;
 import com.gmail.dzhivchik.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +64,15 @@ public class ContentController {
             contentService.addTask(task);
         }
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/createNewDream", method = RequestMethod.POST)
+    public String createNewDream(Model model,
+                                 @RequestParam("description") String description,
+                                 @RequestParam("content") String content){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        contentService.addDream(new Dream(description, content, user));
+        return "redirect:/dreams";
     }
 }

@@ -1,7 +1,9 @@
 package com.gmail.dzhivchik.service.Impl;
 
+import com.gmail.dzhivchik.domain.Dream;
 import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
+import com.gmail.dzhivchik.repository.DreamRepository;
 import com.gmail.dzhivchik.repository.TaskRepository;
 import com.gmail.dzhivchik.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,21 @@ import java.util.Set;
 public class ContentServiceImpl implements ContentService{
     @Autowired
     private TaskRepository taskRepository;
+    @Autowired
+    private DreamRepository dreamRepository;
 
     @Override
     @Transactional
     public boolean addTask(Task task) {
         if(taskRepository.save(task) != null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addDream(Dream dream) {
+        if(dreamRepository.save(dream) != null){
             return true;
         }
         return false;

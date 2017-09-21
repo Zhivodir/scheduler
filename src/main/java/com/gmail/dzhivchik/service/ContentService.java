@@ -1,5 +1,6 @@
 package com.gmail.dzhivchik.service;
 
+import com.gmail.dzhivchik.domain.Dream;
 import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
 
@@ -12,5 +13,6 @@ import java.util.List;
  */
 public interface ContentService {
     boolean addTask(Task task);
+    boolean addDream(Dream dream);
     List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek);
 }

@@ -34,8 +34,18 @@ public class ViewController {
         Date date = new java.sql.Date(System.currentTimeMillis());
         java.util.GregorianCalendar cal = new java.util.GregorianCalendar();
         cal.setTime(date);
-        model.addAttribute("currentDate", cal.get(cal.DAY_OF_MONTH) + " " + cal.getDisplayName(cal.MONTH, cal.LONG, Locale.UK));
+        model.addAttribute("currentDate", cal.get(cal.DAY_OF_MONTH) + " " +
+                cal.getDisplayName(cal.MONTH, cal.LONG, Locale.UK) + " " + cal.get(cal.YEAR));
         model.addAttribute("tasks", contentService.getTasks(user, date, DayOfWeek.of(cal.get(cal.DAY_OF_WEEK))));
         return "tasks";
+    }
+
+
+    @RequestMapping(value = "/dreams", method = RequestMethod.GET)
+    public String onDreams(Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        //model.addAttribute("tasks", contentService.getTasks(user));
+        return "dreams";
     }
 }

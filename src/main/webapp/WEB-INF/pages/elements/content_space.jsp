@@ -18,6 +18,7 @@
         </div>
         <div class="col-sm-9 col-md-10 main">
             <div class="table-responsive">
+                <c:if test="${not empty tasks}">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -40,6 +41,7 @@
                     </c:forEach>
                     </tbody>
                 </table>
+                </c:if>
             </div>
         </div>
     </div>

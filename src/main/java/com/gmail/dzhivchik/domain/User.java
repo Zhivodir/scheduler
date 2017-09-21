@@ -22,8 +22,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
-//    private List<Dream> dreams = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Dream> dreams = new ArrayList<>();
+
 //    private List<Purpose> purposes = new ArrayList<>();
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
@@ -76,6 +79,22 @@ public class User {
 
     public void setRole(UserRoleEnum role) {
         this.role = role;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Dream> getDreams() {
+        return dreams;
+    }
+
+    public void setDreams(List<Dream> dreams) {
+        this.dreams = dreams;
     }
 
     @Override
