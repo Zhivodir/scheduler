@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 17.08.2017
-  Time: 10:17
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -13,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Мои задачи</title>
+    <title>Мои мечты</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/pickmeup.css" rel="stylesheet">
@@ -28,18 +21,18 @@
 
 <body>
 <sec:authorize access="isAuthenticated()">
-    <c:set var="tasks" value="${tasks}" scope="request"/>
-    <c:import url="parts_of_page/forTasks/navbar.jsp"/>
-    <c:import url="parts_of_page/forTasks/content_space.jsp"/>
+    <c:set var="dreams" value="${dreams}" scope="request"/>
+    <c:import url="parts_of_page/forDreams/navbar.jsp"/>
+    <c:import url="parts_of_page/forDreams/content_space.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewTask.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewDream.jsp"/>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/createNewTask.js"></script>
-<script src="js/pickmeup.js"></script>
-<script src="js/pickmeup_config.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/createNewTask.js"></script>
+    <script src="js/pickmeup.js"></script>
+    <script src="js/pickmeup_config.js"></script>
 
 </sec:authorize>
 </body>

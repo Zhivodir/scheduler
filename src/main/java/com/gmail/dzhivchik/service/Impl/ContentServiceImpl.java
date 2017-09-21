@@ -54,4 +54,9 @@ public class ContentServiceImpl implements ContentService{
         result.addAll(temp);
         return result;
     }
+
+    @Override
+    public List<Dream> getDreams(User user) {
+        return dreamRepository.findByLogin(user.getLogin());
+    }
 }

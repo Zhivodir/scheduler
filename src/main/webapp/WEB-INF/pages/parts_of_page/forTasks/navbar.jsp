@@ -11,7 +11,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Новая <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-setting">
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
-                               data-target="#modalForNewDream">Мечта</a></li>
+                               data-target="#modalForNewDreams">Мечта</a></li>
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
                                data-target="#modalForNewTarget">Цель</a></li>
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
@@ -22,6 +22,6 @@
                 <li><a href="/targets">Цели</a></li>
                 <li class="active"><a href="/">Задачи на сегодня</a></li>
             </ul>
-        </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-</div><!-- /.navbar -->
+        </div>
+    </div>
+</div>

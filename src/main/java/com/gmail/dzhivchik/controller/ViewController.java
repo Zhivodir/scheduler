@@ -45,7 +45,7 @@ public class ViewController {
     public String onDreams(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(login);
-        //model.addAttribute("tasks", contentService.getTasks(user));
+        model.addAttribute("dreams", contentService.getDreams(user));
         return "dreams";
     }
 }

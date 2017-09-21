@@ -15,4 +15,5 @@ public interface ContentService {
     boolean addTask(Task task);
     boolean addDream(Dream dream);
     List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek);
+    List<Dream> getDreams(User user);
 }
