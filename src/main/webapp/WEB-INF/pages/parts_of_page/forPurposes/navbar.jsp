@@ -18,8 +18,8 @@
                                data-target="#modalForNewTask">Задача</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="/dreams">Мечты</a></li>
-                <li><a href="/purposes">Цели</a></li>
+                <li><a href="/dreams">Мечты</a></li>
+                <li class="active"><a href="/purposes">Цели</a></li>
                 <li><a href="/">Задачи на сегодня</a></li>
             </ul>
         </div>

@@ -21,9 +21,9 @@
 
 <body>
 <sec:authorize access="isAuthenticated()">
-    <c:set var="dreams" value="${dreams}" scope="request"/>
-    <c:import url="parts_of_page/forDreams/navbar.jsp"/>
-    <c:import url="parts_of_page/forDreams/content_space.jsp"/>
+    <c:set var="dreams" value="${purposes}" scope="request"/>
+    <c:import url="parts_of_page/forPurposes/navbar.jsp"/>
+    <c:import url="parts_of_page/forPurposes/content_space.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewTask.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewDream.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewPurpose.jsp"/>

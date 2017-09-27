@@ -48,7 +48,6 @@
                             <%-- Dates task --%>
                             <div class="form-group hidden_task" id="dated_task" hidden>
                                 <div class="multiple create_task"></div>
-                                <input type="text" class="form-control inputDisabled" id="result" name="task_dates" hidden disabled>
                             </div>
 
                             <%-- Days task --%>
@@ -82,10 +81,10 @@
 
                             <%-- Everyday task --%>
                             <div class="form-group hidden_task" id="everyday_task" hidden>
-                                <label class="sr-only" for="everyday">type</label>
-                                <input type="text" class="form-control inputDisabled" id="everyday" name="everyday"
-                                       placeholder="Enter time of task3" disabled>
+                                <div class="range create_task"></div>
                             </div>
+
+                            <input type="text" class="form-control inputDisabled" id="result" name="task_dates" hidden disabled>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>

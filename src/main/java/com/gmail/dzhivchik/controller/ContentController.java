@@ -75,4 +75,15 @@ public class ContentController {
         contentService.addDream(new Dream(description, content, user));
         return "redirect:/dreams";
     }
+
+
+    @RequestMapping(value = "/createNewPurpose", method = RequestMethod.POST)
+    public String createNewPurpose(Model model,
+                                 @RequestParam("description") String description,
+                                 @RequestParam("content") String content){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        contentService.addPurpose(new Purpose(description, content, 1, null, false, user));
+        return "redirect:/purposes";
+    }
 }

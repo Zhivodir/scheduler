@@ -33,6 +33,7 @@
     <c:import url="parts_of_page/forTasks/content_space.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewTask.jsp"/>
     <c:import url="/WEB-INF/pages/modal/createNewDream.jsp"/>
+    <c:import url="/WEB-INF/pages/modal/createNewPurpose.jsp"/>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

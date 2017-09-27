@@ -1,9 +1,11 @@
 package com.gmail.dzhivchik.service.Impl;
 
 import com.gmail.dzhivchik.domain.Dream;
+import com.gmail.dzhivchik.domain.Purpose;
 import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
 import com.gmail.dzhivchik.repository.DreamRepository;
+import com.gmail.dzhivchik.repository.PurposeRepository;
 import com.gmail.dzhivchik.repository.TaskRepository;
 import com.gmail.dzhivchik.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class ContentServiceImpl implements ContentService{
     private TaskRepository taskRepository;
     @Autowired
     private DreamRepository dreamRepository;
+    @Autowired
+    private PurposeRepository purposeRepository;
 
     @Override
     @Transactional
@@ -46,6 +50,14 @@ public class ContentServiceImpl implements ContentService{
     }
 
     @Override
+    public boolean addPurpose(Purpose purpose) {
+        if(purposeRepository.save(purpose) != null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek) {
         Set<Task> temp = new HashSet<>();
         temp.addAll(taskRepository.findByUserAndDate(user.getId(), date));
@@ -58,5 +70,10 @@ public class ContentServiceImpl implements ContentService{
     @Override
     public List<Dream> getDreams(User user) {
         return dreamRepository.findByLogin(user.getLogin());
+    }
+
+    @Override
+    public List<Purpose> getPurposes(User user) {
+        return purposeRepository.findByLogin(user.getLogin());
     }
 }

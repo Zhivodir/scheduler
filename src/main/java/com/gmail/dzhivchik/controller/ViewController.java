@@ -48,4 +48,13 @@ public class ViewController {
         model.addAttribute("dreams", contentService.getDreams(user));
         return "dreams";
     }
+
+
+    @RequestMapping(value = "/purposes", method = RequestMethod.GET)
+    public String onPurposes(Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        model.addAttribute("purposes", contentService.getPurposes(user));
+        return "purposes";
+    }
 }

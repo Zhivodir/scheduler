@@ -11,15 +11,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Новая <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-setting">
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
-                               data-target="#modalForNewDreams">Мечта</a></li>
+                               data-target="#modalForNewDream">Мечта</a></li>
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
-                               data-target="#modalForNewTarget">Цель</a></li>
+                               data-target="#modalForNewPurpose">Цель</a></li>
                         <li><a href="#" class="btn btn-lg href_for_sidebar" data-toggle="modal"
                                data-target="#modalForNewTask">Задача</a></li>
                     </ul>
                 </li>
                 <li><a href="/dreams">Мечты</a></li>
-                <li><a href="/targets">Цели</a></li>
+                <li><a href="/purposes">Цели</a></li>
                 <li class="active"><a href="/">Задачи на сегодня</a></li>
             </ul>
         </div>

@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="modal fade" id="modalForNewDream" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="modalForNewPurpose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -12,10 +12,10 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Create new Dream</h4>
+                        <h4 class="modal-title" id="myModalLabel">Create new Purpose</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="createNewDream" method="post">
+                        <form action="createNewPurpose" method="post">
                             <div class="form-group">
                                 <label class="sr-only" for="description">description</label>
                                 <input type="text" class="form-control" id="description" name="description"

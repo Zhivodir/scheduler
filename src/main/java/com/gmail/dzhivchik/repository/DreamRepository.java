@@ -1,7 +1,6 @@
 package com.gmail.dzhivchik.repository;
 
 import com.gmail.dzhivchik.domain.Dream;
-import com.gmail.dzhivchik.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

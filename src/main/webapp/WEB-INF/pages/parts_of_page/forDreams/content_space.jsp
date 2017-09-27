@@ -9,19 +9,14 @@
         <div class="col-sm-8 col-md-5"></div>
     </div>
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-4 col-md-3 sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="single left_side" id="left_side"></div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    Чтобы просто сдвинуться с места нужно бежать, чтобы куда то попасть нужно бежать в два раза быстрее
-                </div>
-            </div>
         </div>
-        <div class="col-sm-9 col-md-10 main">
+        <div class="col-sm-8 col-md-9 main">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

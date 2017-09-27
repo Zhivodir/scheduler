@@ -25,7 +25,8 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Dream> dreams = new ArrayList<>();
 
-//    private List<Purpose> purposes = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Purpose> purposes = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
@@ -96,6 +97,14 @@ public class User {
     public void setDreams(List<Dream> dreams) {
         this.dreams = dreams;
     }
+
+//    public List<Purpose> getPurposes() {
+//        return purposes;
+//    }
+//
+//    public void setPurposes(List<Purpose> purposes) {
+//        this.purposes = purposes;
+//    }
 
     @Override
     public String toString() {
