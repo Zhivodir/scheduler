@@ -44,13 +44,12 @@ public class Task{
         inverseJoinColumns = {@JoinColumn(name = "day_id", referencedColumnName = "id")})
     List<DayForTask> days = new ArrayList<>();
 
-//    @JsonIgnore
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "purpose_task",
-//            joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "purpose_id", referencedColumnName = "id")})
-//    List<Purpose> purposes = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "purpose_task",
+            joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "purpose_id", referencedColumnName = "id")})
+    List<Purpose> purposes = new ArrayList<>();
 
     public Task() {
 
@@ -146,13 +145,13 @@ public class Task{
         days.add(day);
     }
 
-//    public List<Purpose> getPurposes() {
-//        return purposes;
-//    }
-//
-//    public void setPurposes(List<Purpose> purposes) {
-//        this.purposes = purposes;
-//    }
+    public List<Purpose> getPurposes() {
+        return purposes;
+    }
+
+    public void setPurposes(List<Purpose> purposes) {
+        this.purposes = purposes;
+    }
 
     @Override
     public String toString() {

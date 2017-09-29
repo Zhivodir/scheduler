@@ -98,13 +98,13 @@ public class User {
         this.dreams = dreams;
     }
 
-//    public List<Purpose> getPurposes() {
-//        return purposes;
-//    }
-//
-//    public void setPurposes(List<Purpose> purposes) {
-//        this.purposes = purposes;
-//    }
+    public List<Purpose> getPurposes() {
+        return purposes;
+    }
+
+    public void setPurposes(List<Purpose> purposes) {
+        this.purposes = purposes;
+    }
 
     @Override
     public String toString() {

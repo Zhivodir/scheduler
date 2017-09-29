@@ -2,6 +2,7 @@ package com.gmail.dzhivchik.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 16.08.2017.
@@ -24,9 +25,8 @@ public class Purpose{
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @JsonIgnore
-//    @ManyToMany(mappedBy = "purposes", cascade = CascadeType.ALL)
-//    private List<Task> pointsForImplementation;
+    @ManyToMany(mappedBy = "purposes", cascade = CascadeType.ALL)
+    private List<Task> pointsForImplementation;
 
 
     public Purpose() {
@@ -65,13 +65,13 @@ public class Purpose{
         this.timeLimits = timeLimits;
     }
 
-//    public List<Task> getPointsForImplementation() {
-//        return pointsForImplementation;
-//    }
-//
-//    public void setPointsForImplementation(List<Task> pointsForImplementation) {
-//        this.pointsForImplementation = pointsForImplementation;
-//    }
+    public List<Task> getPointsForImplementation() {
+        return pointsForImplementation;
+    }
+
+    public void setPointsForImplementation(List<Task> pointsForImplementation) {
+        this.pointsForImplementation = pointsForImplementation;
+    }
 
     public boolean isDone() {
         return done;
