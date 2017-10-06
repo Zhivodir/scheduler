@@ -76,4 +76,9 @@ public class ContentServiceImpl implements ContentService{
     public List<Purpose> getPurposes(User user) {
         return purposeRepository.findByLogin(user.getLogin());
     }
+
+    @Override
+    public List<Purpose> getPurposes(User user, long[] purpose_id) {
+            return purposeRepository.findByLogin(user.getLogin(), purpose_id);
+    }
 }

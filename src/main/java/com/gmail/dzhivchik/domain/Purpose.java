@@ -1,5 +1,8 @@
 package com.gmail.dzhivchik.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +11,7 @@ import java.util.List;
  * Created by User on 16.08.2017.
  */
 
+@JsonAutoDetect
 @Entity
 @Table(name = "purposes")
 public class Purpose{
@@ -21,10 +25,12 @@ public class Purpose{
     private Date timeLimits;
     private boolean done;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "purposes", cascade = CascadeType.ALL)
     private List<Task> pointsForImplementation;
 

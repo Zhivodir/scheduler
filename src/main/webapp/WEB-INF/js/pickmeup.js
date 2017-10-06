@@ -7,7 +7,6 @@
  * @license   MIT License, see license.txt
  */
 
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
@@ -773,15 +772,16 @@
         );
 
         function onLoaded(data) {
+            alert(data.toString())
             var content = document.getElementById('content');
             $("#content tr").remove();
             for(var i in data) {
                 $('#content').prepend('<tr>' +
                     '<td>' + data[i].id + '</td>' +
                     '<td>' + data[i].description + '</td>' +
-                    '<td>' + i.id + '</td>' +
-                    '<td>' + i.id + '</td>' +
-                    '<td>' + i.id + '</td>' +
+                    '<td>' + data[i].id + '</td>' +
+                    '<td>' + data[i].id + '</td>' +
+                    '<td>' + data[i].id + '</td>' +
                     '</tr>');
             }
         }

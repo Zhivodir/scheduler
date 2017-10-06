@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
+import java.util.List;
 
 /**
  * Created by User on 21.08.2017.
@@ -35,7 +36,8 @@ public class ContentController {
                                 @RequestParam("priority") String priority,
                                 @RequestParam("type_of_task") String type_of_task,
                                 @RequestParam(value = "task_dates", required = false) String task_dates,
-                                @RequestParam(value = "day_of_week", required = false) String[] day_of_week){
+                                @RequestParam(value = "day_of_week", required = false) String[] day_of_week,
+                                @RequestParam(value = "move_to", required = false) long[] move_to){
         if(!description.trim().isEmpty()) {
             String login = SecurityContextHolder.getContext().getAuthentication().getName();
             User user = userService.getUser(login);
@@ -61,6 +63,12 @@ public class ContentController {
                     task.addToDayList(dayForTask);
                 }
             }
+
+            if(move_to != null){
+                List<Purpose> purposes_for_this_task = contentService.getPurposes(user, move_to);
+                task.getPurposes().addAll(purposes_for_this_task);
+            }
+
             contentService.addTask(task);
         }
         return "redirect:/";

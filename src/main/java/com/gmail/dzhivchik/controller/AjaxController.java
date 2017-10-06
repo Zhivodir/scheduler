@@ -1,6 +1,7 @@
 package com.gmail.dzhivchik.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmail.dzhivchik.domain.Purpose;
 import com.gmail.dzhivchik.domain.Task;
 import com.gmail.dzhivchik.domain.User;
 import com.gmail.dzhivchik.service.ContentService;
@@ -43,6 +44,7 @@ public class AjaxController {
         //Сегодняшняя дата
         String result = "";
         if(data != null) {
+
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             try {
                 java.sql.Date dateForSearch = new java.sql.Date(sdf.parse(data).getTime());
@@ -59,6 +61,25 @@ public class AjaxController {
                 System.out.println("");
             }
         }
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/ajax/load_tree_of_purposes_and_tasks", method = RequestMethod.GET)
+    public String loadTreeOfPorposesAndTasks(Model model,
+                                             @RequestParam(value = "id", required = false) String id){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        List<Purpose> content = null;
+        if(id == "") {
+            content = contentService.getPurposes(user);
+        }
+        StringWriter writer = new StringWriter();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(writer, content);
+        } catch (IOException e){e.printStackTrace();}
+        String result = writer.toString();
         return result;
     }
 }

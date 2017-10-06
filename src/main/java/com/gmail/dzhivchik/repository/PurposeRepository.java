@@ -13,4 +13,7 @@ import java.util.List;
 public interface PurposeRepository extends JpaRepository<Purpose, Long> {
     @Query("SELECT p from Purpose p where p.user.login = :login")
     List<Purpose> findByLogin(@Param("login") String login);
+
+    @Query("SELECT p from Purpose p where p.user.login = :login and p.id in :purpose_id")
+    List<Purpose> findByLogin(@Param("login") String login, @Param("purpose_id") long[] purpose_id);
 }

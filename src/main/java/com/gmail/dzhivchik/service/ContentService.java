@@ -20,4 +20,5 @@ public interface ContentService {
     List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek);
     List<Dream> getDreams(User user);
     List<Purpose> getPurposes(User user);
+    List<Purpose> getPurposes(User user, long[] purpose_id);
 }
