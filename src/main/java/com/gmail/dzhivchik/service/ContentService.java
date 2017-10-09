@@ -18,6 +18,7 @@ public interface ContentService {
     boolean addPurpose(Purpose purpose);
 
     List<Task> getTasks(User user, Date date, DayOfWeek dayOfWeek);
+    List<Task> getTasks(User user, long purpose_id);
     List<Dream> getDreams(User user);
     List<Purpose> getPurposes(User user);
     List<Purpose> getPurposes(User user, long[] purpose_id);

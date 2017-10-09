@@ -21,6 +21,7 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
+                        <th></th>
                         <th>Время</th>
                         <th>Краткое содержание</th>
                         <th>Приоритет</th>
@@ -28,8 +29,9 @@
                     </thead>
                     <tbody id="content">
                     <c:forEach items="${purposes}" var="purposes">
-                        <tr>
-                            <td>${purposes.id}</td>
+                        <tr class="choise_check choise_purpose">
+                            <td class="checked_purpose_id"><input hidden type="checkbox" name="checked_purpose_id" value="${purposes.id}"/></td>
+                            <td></td>
                             <td>${purposes.description}</td>
                             <td>ipsum</td>
                         </tr>

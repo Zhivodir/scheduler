@@ -68,6 +68,11 @@ public class ContentServiceImpl implements ContentService{
     }
 
     @Override
+    public List<Task> getTasks(User user, long purpose_id) {
+        return taskRepository.findByPurpose(user.getId(), purpose_id);
+    }
+
+    @Override
     public List<Dream> getDreams(User user) {
         return dreamRepository.findByLogin(user.getLogin());
     }

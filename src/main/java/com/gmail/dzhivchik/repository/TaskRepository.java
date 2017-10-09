@@ -18,4 +18,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query("SELECT t from Task t INNER JOIN t.days d where t.user.id = :id and d.day = :day")
     List<Task> findByUsetAndDay(@Param("id") int id, @Param("day") DayOfWeek day);
+
+    @Query("SELECT t from Task t INNER JOIN t.purposes p where t.user.id = :id and p.id = :purpose_id")
+    List<Task> findByPurpose(@Param("id") int id, @Param("purpose_id") long purpose_id);
 }

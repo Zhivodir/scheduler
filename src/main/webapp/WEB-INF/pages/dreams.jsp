@@ -10,6 +10,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/pickmeup.css" rel="stylesheet">
+    <link href="css/forTree.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,6 +35,8 @@
     <script src="js/createNewTask.js"></script>
     <script src="js/pickmeup.js"></script>
     <script src="js/pickmeup_config.js"></script>
+    <script src="js/other.js"></script>
+    <script src="js/treeForNewTask.js"></script>
 
 </sec:authorize>
 </body>

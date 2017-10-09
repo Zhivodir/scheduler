@@ -82,4 +82,22 @@ public class AjaxController {
         String result = writer.toString();
         return result;
     }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/ajax/load_embedded_tasks", method = RequestMethod.POST)
+    public String loadEmbeddedTasks(Model model,
+                                    @RequestParam(value = "id", required = false) String id){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUser(login);
+        List<Task> taskForPurpose = contentService.getTasks(user, Long.valueOf(id));
+        StringWriter writer = new StringWriter();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(writer, taskForPurpose);
+        } catch (IOException e){e.printStackTrace();}
+        String result = writer.toString();
+        System.out.println(result);
+        return result;
+    }
 }

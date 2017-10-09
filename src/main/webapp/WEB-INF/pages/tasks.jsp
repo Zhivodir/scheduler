@@ -43,7 +43,7 @@
 <script src="js/pickmeup.js"></script>
 <script src="js/pickmeup_config.js"></script>
 <script src="js/other.js"></script>
-<script src="js/tree.js"></script>
+<script src="js/treeForNewTask.js"></script>
 
 </sec:authorize>
 </body>

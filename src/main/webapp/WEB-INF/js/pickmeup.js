@@ -772,7 +772,7 @@
         );
 
         function onLoaded(data) {
-            alert(data.toString())
+            // alert(data.toString())
             var content = document.getElementById('content');
             $("#content tr").remove();
             for(var i in data) {

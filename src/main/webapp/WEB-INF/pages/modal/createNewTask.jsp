@@ -86,7 +86,6 @@
 
                             <div>
                                 <ul class="Container" id="tree">
-                                    <%--<input class="radio_move_to" type="radio" name="move_to" value="tree"/>--%>
                                     <li class="Node IsRoot IsLast ExpandClosed">
                                         <div class="Expand"></div>
                                         <div class="Content">Каталог</div>
