@@ -97,7 +97,6 @@ public class AjaxController {
             mapper.writeValue(writer, taskForPurpose);
         } catch (IOException e){e.printStackTrace();}
         String result = writer.toString();
-        System.out.println(result);
         return result;
     }
 }
