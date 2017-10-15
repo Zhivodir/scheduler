@@ -3,7 +3,8 @@
  */
 
 onload = function() {
-    tree("tree", "/ajax/load_tree_of_purposes_and_tasks"); }
+    tree("tree", "/ajax/load_tree_of_purposes_and_tasks");
+}
 
 
 document.oncontextmenu = function (){return false};

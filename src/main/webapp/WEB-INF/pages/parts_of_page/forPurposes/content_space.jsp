@@ -36,6 +36,7 @@
                             <td>ipsum</td>
                         </tr>
                     </c:forEach>
+                    <tr class="choise_check choise_purpose"></tr>
                     </tbody>
                 </table>
             </div>

@@ -94,6 +94,7 @@ function tree(id, url) {
         })
     }
 
+
     element.onclick = function(event) {
         event = event || window.event
         var clickedElem = event.target || event.srcElement
