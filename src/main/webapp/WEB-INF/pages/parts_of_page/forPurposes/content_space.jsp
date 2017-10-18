@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-8 col-md-9 main">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table" id="myTable">
                     <thead>
                     <tr>
                         <th></th>
@@ -29,8 +29,10 @@
                     </thead>
                     <tbody id="content">
                     <c:forEach items="${purposes}" var="purposes">
-                        <tr class="choise_check choise_purpose">
-                            <td class="checked_purpose_id"><input hidden type="checkbox" name="checked_purpose_id" value="${purposes.id}"/></td>
+                        <tr class="choise_check choise_purpose active">
+                            <td class="checked_purpose_id">
+                                <input hidden checked type="checkbox" name="checked_purpose_id" value="${purposes.id}"/>
+                            </td>
                             <td></td>
                             <td>${purposes.description}</td>
                             <td>ipsum</td>

@@ -1,5 +1,4 @@
-$(".choise_check.choise_purpose").click(function(event){
-    //
+$(".choise_check.choise_purpose").dblclick(function(){
      var checked = $(this)[0].getElementsByTagName('input')[0].getAttribute('value');
      var rows = $(this).find("tr");
      var row = $(this).closest("tr");
@@ -28,6 +27,8 @@ $(".choise_check.choise_purpose").click(function(event){
                  }
                  row.after(html);
              }
+             row.addClass("active");
+
     }});
 });
 
